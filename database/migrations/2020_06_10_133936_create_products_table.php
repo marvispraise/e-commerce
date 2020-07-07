@@ -21,7 +21,7 @@ class CreateProductsTable extends Migration
             $table->string('product_image');
             $table->string('price');
             $table->string('special_product')->default(0);
-            $table->string('discount')->default('0%');
+            $table->string('discount')->default(0);
             $table->string('hot_deal')->default(0);
             $table->string('availability');
             $table->timestamps();
