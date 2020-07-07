@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\OrderItem;
+use App\Product;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -13,7 +15,15 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin/index');
+        $products = Product::all();
+        $orders = OrderItem::all();
+        $sProducts = Product::where('special_product', 1)->get();
+        return view('admin/index', [
+            'sProducts' => $sProducts,
+            'products' => $products,
+            'orders' => $orders,
+
+        ]);
     }
 
     /**
